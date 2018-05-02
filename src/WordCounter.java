@@ -29,12 +29,17 @@ public class WordCounter {
 					String cleanWord = word.toLowerCase().replace(",", nothing).replace(".", nothing)
 							.replace("\"", nothing).replace("?", nothing);
 
-					System.out.println(cleanWord);
+					if (occurences.containsKey(cleanWord)) {
+						occurences.put(cleanWord, occurences.get(cleanWord) + 1);
+					} else {
+						occurences.put(cleanWord, 1);
+					}
 				}
 			}
 
 			linedUp = fileReader.readLine();
 		}
+		System.out.println(occurences);
 	}
 
 }
