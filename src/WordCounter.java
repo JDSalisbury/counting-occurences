@@ -18,8 +18,17 @@ public class WordCounter {
 		Map<String, Integer> occurences = new TreeMap<>();
 
 		String linedUp = fileReader.readLine();
+		String nothing = "";
+
 		while (linedUp != null) {
-			System.out.println(linedUp);
+			if (!linedUp.trim().equals(nothing)) {
+				String[] words = linedUp.split(" ");
+
+				for (String word : words) {
+					System.out.println(word);
+				}
+			}
+
 			linedUp = fileReader.readLine();
 		}
 	}
