@@ -16,6 +16,7 @@ public class WordCounter {
 
 		Path fileFinder = Paths.get(System.getProperty("user.dir")).resolve(fileName);
 
+		@SuppressWarnings("resource")
 		BufferedReader fileReader = new BufferedReader(new FileReader(fileFinder.toFile()));
 
 		Map<String, Integer> occurences = new TreeMap<>();
