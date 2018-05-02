@@ -29,6 +29,10 @@ public class WordCounter {
 					String cleanWord = word.toLowerCase().replace(",", nothing).replace(".", nothing)
 							.replace("\"", nothing).replace("?", nothing);
 
+					if (cleanWord.trim().equals(nothing)) {
+						continue;
+					}
+
 					if (occurences.containsKey(cleanWord)) {
 						occurences.put(cleanWord, occurences.get(cleanWord) + 1);
 					} else {
