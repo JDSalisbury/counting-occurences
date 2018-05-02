@@ -2,8 +2,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class WordCounter {
 
@@ -43,7 +46,11 @@ public class WordCounter {
 
 			linedUp = fileReader.readLine();
 		}
-		System.out.println(occurences);
+		Map<String, Integer> OrderOfOccurencesFromHighToLow = occurences.entrySet().stream()
+				.sorted(Entry.<String, Integer>comparingByValue().reversed())
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+		System.out.println(OrderOfOccurencesFromHighToLow);
 	}
 
 }
