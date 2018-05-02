@@ -25,7 +25,11 @@ public class WordCounter {
 				String[] words = linedUp.split(" ");
 
 				for (String word : words) {
-					System.out.println(word);
+
+					String cleanWord = word.toLowerCase().replace(",", nothing).replace(".", nothing)
+							.replace("\"", nothing).replace("?", nothing);
+
+					System.out.println(cleanWord);
 				}
 			}
 
